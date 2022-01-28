@@ -26,34 +26,34 @@ public class TemasController {
 	private TemasRepository repository;
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Temas>> GetAll(){
+	public ResponseEntity<List<Temas>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Temas> GetById(@PathVariable long id){
+	public ResponseEntity<Temas> getById(@PathVariable long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	@GetMapping("/{tema}") 
-	public ResponseEntity<List<Temas>> GetByTemas (@PathVariable String tema)  {
-		return ResponseEntity.ok(repository.findAllByTemasContainingIgnoreCase(tema));
+	@GetMapping("/{descricao}") 
+	public ResponseEntity<List<Temas>> getByTemas (@PathVariable String descricao)  {
+		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(descricao));
 	}     
 
 	@PostMapping("/new")
-	public ResponseEntity <Temas> newTemas (@RequestBody Temas newTemas) {
+	public ResponseEntity<Temas> newTemas(@RequestBody Temas newTemas) {
 		return ResponseEntity.status(201).body(repository.save(newTemas));
 	}
 
 	@PutMapping("/edit")
-	public ResponseEntity <Temas> editTemas (@RequestBody Temas editTemas) {
-		return ResponseEntity.status (200).body(repository.save(editTemas));
+	public ResponseEntity<Temas> editTemas(@RequestBody Temas editTemas) {
+		return ResponseEntity.status(200).body(repository.save(editTemas));
 	}
 
 	@DeleteMapping ("/delete/{id}")
-	public void deleteTemas (@PathVariable long id) {
+	public void deleteTemas(@PathVariable long id) {
 		repository.deleteById(id);
 	}
 }

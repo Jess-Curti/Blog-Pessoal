@@ -26,30 +26,32 @@ public class UsuariosController {
 	private UsuariosRepository repository;
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Usuarios>> GetAll(){
+	public ResponseEntity<List<Usuarios>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Usuarios> GetById(@PathVariable long id){
+	public ResponseEntity<Usuarios> getById(@PathVariable long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	@GetMapping("/{usuario}") 
-	public ResponseEntity<List<Usuarios>> GetByUsuarios (@PathVariable String usuario)  {
-		return ResponseEntity.ok(repository.findAllByUsuariosContainingIgnoreCase(usuario));
+	@GetMapping("/{pathBatata}/{pathBanana}") 
+	public ResponseEntity<List<Usuarios>> getByUsuarios (
+			@PathVariable(value = "pathBatata") String batata,
+			@PathVariable(value = "pathBanana") String banana)  {
+		return ResponseEntity.ok(repository.findAllByNomeAndEmailContainingIgnoreCase(batata, banana));
 	}     
 
 	@PostMapping("/new")
-	public ResponseEntity <Usuarios> newUsuarios (@RequestBody Usuarios newUsuarios) {
-		return ResponseEntity.status(201).body(repository.save(newUsuarios));
+	public ResponseEntity<Usuarios> newUsuario(@RequestBody Usuarios newUsuario) {
+		return ResponseEntity.status(201).body(repository.save(newUsuario));
 	}
 
 	@PutMapping("/edit")
-	public ResponseEntity <Usuarios> editUsuarios (@RequestBody Usuarios editUsuarios) {
-		return ResponseEntity.status (200).body(repository.save(editUsuarios));
+	public ResponseEntity<Usuarios> editUsuario(@RequestBody Usuarios editUsuario) {
+		return ResponseEntity.status(200).body(repository.save(editUsuario));
 	}
 
 	@DeleteMapping ("/delete/{id}")

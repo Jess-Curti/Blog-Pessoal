@@ -1,12 +1,20 @@
 package com.generation.blogpessoal.BlogPessoal.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name = "tb_usuarios")
@@ -21,16 +29,19 @@ public class Usuarios {
 	private String nome;
 	
 	@NotBlank
-	@Size(min = 5, max = 50)
-	private String usuario;
+	@Email
+	private String email;
 	
 	@NotBlank
 	@Size(min = 5, max = 50)
 	private String senha;
 	
-	@NotBlank
 	@Size(min = 5, max = 50)
 	private String foto;
+	
+	@OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuarios")
+	private List<Postagens> postagens;
 
 	public long getId() {
 		return id;
@@ -48,12 +59,12 @@ public class Usuarios {
 		this.nome = nome;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {
@@ -71,6 +82,15 @@ public class Usuarios {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+
+	public List<Postagens> getPostagens() {
+		return postagens;
+	}
+
+	public void setPostagens(List<Postagens> postagens) {
+		this.postagens = postagens;
+	}
+	
 	
 	
 }

@@ -6,11 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_postagens")
@@ -30,7 +33,15 @@ public class Postagens {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
-
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagens")
+	private Usuarios usuarios;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("temas")
+	private Temas temas;
+	
 	public long getId() {
 		return id;
 	}
@@ -62,7 +73,23 @@ public class Postagens {
 	public void setData(Date data) {
 		this.data = data;
 	}
-	
-	
 
+	public Usuarios getUsuario() {
+		return usuarios;
+	}
+
+	public void setUsuario(Usuarios usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public Temas getTemas() {
+		return temas;
+	}
+
+	public void setTemas(Temas temas) {
+		this.temas = temas;
+	}
+	
+	
+	
 }
