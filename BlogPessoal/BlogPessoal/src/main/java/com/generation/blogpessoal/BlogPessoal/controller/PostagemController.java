@@ -14,48 +14,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.generation.blogpessoal.BlogPessoal.model.Usuarios;
-import com.generation.blogpessoal.BlogPessoal.repository.UsuariosRepository;
+import com.generation.blogpessoal.BlogPessoal.model.Postagem;
+import com.generation.blogpessoal.BlogPessoal.repository.PostagemRepository;
+
+
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/postagem")
 @CrossOrigin("*")
-public class UsuariosController {
+public class PostagemController {
 
 	@Autowired
-	private UsuariosRepository repository;
+	private PostagemRepository repository;
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Usuarios>> getAll(){
+	public ResponseEntity<List<Postagem>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Usuarios> getById(@PathVariable long id){
+	public ResponseEntity<Postagem> getById(@PathVariable long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	@GetMapping("/{pathBatata}/{pathBanana}") 
-	public ResponseEntity<List<Usuarios>> getByUsuarios (
-			@PathVariable(value = "pathBatata") String batata,
-			@PathVariable(value = "pathBanana") String banana)  {
-		return ResponseEntity.ok(repository.findAllByNomeAndEmailContainingIgnoreCase(batata, banana));
+	@GetMapping("/{postagem}") 
+	public ResponseEntity<List<Postagem>> GetByPostagens(@PathVariable String postagem)  {
+		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(postagem));
 	}     
 
 	@PostMapping("/new")
-	public ResponseEntity<Usuarios> newUsuario(@RequestBody Usuarios newUsuario) {
-		return ResponseEntity.status(201).body(repository.save(newUsuario));
+	public ResponseEntity<Postagem> newPostagens(@RequestBody Postagem newPostagens) {
+		return ResponseEntity.status(201).body(repository.save(newPostagens));
 	}
 
 	@PutMapping("/edit")
-	public ResponseEntity<Usuarios> editUsuario(@RequestBody Usuarios editUsuario) {
-		return ResponseEntity.status(200).body(repository.save(editUsuario));
+	public ResponseEntity<Postagem> editPostagens(@RequestBody Postagem editPostagens) {
+		return ResponseEntity.status(200).body(repository.save(editPostagens));
 	}
 
 	@DeleteMapping ("/delete/{id}")
-	public void deleteUsuarios (@PathVariable long id) {
+	public void deletePostagens (@PathVariable long id) {
 		repository.deleteById(id);
 	}
+
 }

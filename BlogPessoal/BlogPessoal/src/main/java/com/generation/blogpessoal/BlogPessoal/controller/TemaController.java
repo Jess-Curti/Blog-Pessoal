@@ -14,41 +14,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.generation.blogpessoal.BlogPessoal.model.Temas;
-import com.generation.blogpessoal.BlogPessoal.repository.TemasRepository;
+import com.generation.blogpessoal.BlogPessoal.model.Tema;
+import com.generation.blogpessoal.BlogPessoal.repository.TemaRepository;
 
 @RestController
 @RequestMapping("/tema")
 @CrossOrigin("*")
-public class TemasController {
+public class TemaController {
 
 	@Autowired
-	private TemasRepository repository;
+	private TemaRepository repository;
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Temas>> getAll(){
+	public ResponseEntity<List<Tema>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Temas> getById(@PathVariable long id){
+	public ResponseEntity<Tema> getById(@PathVariable long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
 	@GetMapping("/{descricao}") 
-	public ResponseEntity<List<Temas>> getByTemas (@PathVariable String descricao)  {
+	public ResponseEntity<List<Tema>> getByTemas (@PathVariable String descricao)  {
 		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(descricao));
 	}     
 
 	@PostMapping("/new")
-	public ResponseEntity<Temas> newTemas(@RequestBody Temas newTemas) {
+	public ResponseEntity<Tema> newTemas(@RequestBody Tema newTemas) {
 		return ResponseEntity.status(201).body(repository.save(newTemas));
 	}
 
 	@PutMapping("/edit")
-	public ResponseEntity<Temas> editTemas(@RequestBody Temas editTemas) {
+	public ResponseEntity<Tema> editTemas(@RequestBody Tema editTemas) {
 		return ResponseEntity.status(200).body(repository.save(editTemas));
 	}
 

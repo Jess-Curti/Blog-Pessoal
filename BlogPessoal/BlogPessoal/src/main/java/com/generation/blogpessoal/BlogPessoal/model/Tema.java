@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_temas")
-public class Temas {
+public class Tema {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +24,9 @@ public class Temas {
 	@NotBlank
 	private String descricao;
 	
-	@OneToMany(mappedBy = "temas", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "temas", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("temas")
-	private List<Postagens> postagens;
+	private List<Postagem> postagens;
 
 	public long getId() {
 		return id;

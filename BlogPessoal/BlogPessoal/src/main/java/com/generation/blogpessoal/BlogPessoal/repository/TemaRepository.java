@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.generation.blogpessoal.BlogPessoal.model.Temas;
+import com.generation.blogpessoal.BlogPessoal.model.Tema;
 
 
 @Repository
-public interface TemasRepository extends JpaRepository<Temas, Long> {
+public interface TemaRepository extends JpaRepository<Tema, Long> {
 	
-	public List<Temas> findAllByDescricaoContainingIgnoreCase(String descricao);
+	public List<Tema> findAllByDescricaoContainingIgnoreCase(String descricao);
 
 }
