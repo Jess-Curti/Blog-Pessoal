@@ -1,4 +1,4 @@
-<img src="https://github.com/Jess-Curti/Blog-Pessoal/blob/main/LogoBlog.png" min-width="400px" max-width="400px" width="400px" align="right" alt="Logo Jess">
+<img src="https://github.com/Jess-Curti/Blog-Pessoal/blob/main/LogoBlog2.png" min-width="400px" max-width="400px" width="400px" align="right" alt="Logo Jess">
 
 <p align="left"><h1><strong>Projeto: Blog Pessoal</h1></strong>
 </p>
@@ -7,10 +7,9 @@
 <p align="left">Projeto Proposto do <strong>Bloco II</strong> do Bootcamp da <strong>Generation Brasil</strong>.
 <br>
 </p>
-<p align="left"><strong>Descrição do Projeto: </strong> Blog Pessoal onde irei contar um pouco do meu dia a dia.
+<p align="left"><strong>Descrição do Projeto: </strong> Blog Pessoal com um pouco da minha experiência e hobbies.
 <br>
 </p>
-<br>
 
 ### 🛠 Tecnologias
 
@@ -19,7 +18,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [x] [Java](https://www.java.com/pt-BR/)
 - [x] [Spring Boot](https://start.spring.io/)
 - [x] [MySQL](https://www.mysql.com/)
-<br>
 
 ### ✔ **Recursos**
 
@@ -30,7 +28,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [x] Repositório de Tema
 - [x] Controller de Tema
 - [x] Segurança de usuario
-<br>
 
 ### 📈 **Linkedin**
 <table>
