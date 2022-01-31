@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/Jess-Curti/Blog-Pessoal/develop/LogoBlog.png" min-width="400px" max-width="400px" width="400px" align="right" alt="Logo Jess">>
+<img src="https://github.com/Jess-Curti/Blog-Pessoal/blob/main/LogoBlog.png" min-width="400px" max-width="400px" width="400px" align="right" alt="Logo Jess">>
 
 <p align="left">Projeto Proposto no <strong>Bloco II</strong> do Bootcamp da <strong>Generation Brasil</strong>.
 <br>
