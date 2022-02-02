@@ -33,7 +33,7 @@ public class Usuario {
 	private String usuario;
 	
 	@NotBlank
-	@Size(min = 5, max = 50)
+	@Size(min = 5, max = 250)
 	private String senha;
 	
 	@Size(min = 5, max = 50)
@@ -42,6 +42,24 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuarios", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuarios")
 	private List<Postagem> postagens;
+		
+	public Usuario(long id, String nome, String usuario, String senha, String foto) {
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+	}
+
+	public Usuario(@NotBlank @Size(min = 5, max = 50) String nome, @NotBlank @Email String usuario,
+			@NotBlank @Size(min = 5, max = 50) String senha) {
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+	}
+
+	public Usuario() {
+	}
 
 	public long getId() {
 		return id;
