@@ -23,7 +23,7 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@NotBlank(message = "O atributo Nome é Obrigatório!")
 	private String nome;
@@ -37,7 +37,7 @@ public class Usuario {
 	@Size(min = 6, message = "A Senha deve ter no mínimo 6 caracteres")
 	private String senha;
 
-	@Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caractéres")
+	@Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caracteres")
 	private String foto;
 
 	@OneToMany(mappedBy = "usuarios", cascade = CascadeType.REMOVE)
@@ -45,7 +45,7 @@ public class Usuario {
 	private List<Postagem> postagens;
 
 	// Primeiro Método Construtor - Com todos Atributos
-	public Usuario(long id, String nome, String usuario, String senha, String foto) {
+	public Usuario(Long id, String nome, String usuario, String senha, String foto) {
 		this.id = id;
 		this.nome = nome;
 		this.usuario = usuario;
@@ -65,11 +65,11 @@ public class Usuario {
 	}
 
 	//Getters and Setters
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

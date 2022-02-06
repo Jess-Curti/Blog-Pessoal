@@ -21,21 +21,27 @@ public class SwaggerConfig {
 		
 		return new OpenAPI()
 				.info(new Info()
-					.title("Blog Pessoal Jess")
-					.description("Projeto Blog Pessoal Jess")
-					.version("v0.0.1")
-				.license(new License()
-					.name("Blog Pessoal")
-					.url("https://brazil.generation.org/"))
-				.contact(new Contact()
-					.name("Jessica Curti")
-					.url("https://github.com/Jess-Curti")
-					.email("jessica.m.curti@gmail.com")))
+						.title("Blog Jess")
+						.description("Projeto Blog Pessoal")
+						.version("v0.0.1")
+						.license(new License()
+								.name("Blog Jess")
+								.url("<https://brazil.generation.org/>"))
+						.contact(new Contact()
+								.name("Jessica Curti")
+								.url("<https://linktr.ee/jessicacurti>")
+								.email("jessica.m.curti@gmail.com")))
 				.externalDocs(new ExternalDocumentation()
-					.description("Github")
-					.url("https://github.com/Jess-Curti/Blog-Pessoal/"));
-		}
+								.description("Github")
+								.url("<https://github.com/Jess-Curti/Blog-Pessoal/>"));
+	}
 
+	private ApiResponse createApiResponse(String message) {
+		
+		return new ApiResponse().description(message);
+		
+	}
+	
 	@Bean
 	public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
 		
@@ -46,20 +52,12 @@ public class SwaggerConfig {
 
 				apiResponses.addApiResponse("200", createApiResponse("Sucesso!"));
 				apiResponses.addApiResponse("201", createApiResponse("Objeto Persistido!"));
-				apiResponses.addApiResponse("204", createApiResponse("Objeto Excluído!"));
 				apiResponses.addApiResponse("400", createApiResponse("Erro na Requisição!"));
 				apiResponses.addApiResponse("401", createApiResponse("Acesso Não Autorizado!"));
-				apiResponses.addApiResponse("404", createApiResponse("Objeto Não Encontrado!"));
 				apiResponses.addApiResponse("500", createApiResponse("Erro na Aplicação!"));
 
 			}));
 		};
-	}
-
-	private ApiResponse createApiResponse(String message) {
-		
-			return new ApiResponse().description(message);
-
 	}
 
 }

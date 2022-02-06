@@ -11,17 +11,25 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/**
- * Configuração da classe Security no Spring Boot
- * @author Jessica
- * @version 1.0 
- */
-
 @EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private @Autowired UserDetailsService userDetailsService;
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		
+		auth.userDetailsService(userDetailsService);
+		
+		auth.inMemoryAuthentication().withUser("jess-curti").password(passwordEncoder().encode("jess-curti"))
+			.authorities("ROLE_ADMIN");
+	}
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
@@ -34,16 +42,5 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and().csrf().disable();
 	}
 	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService);
-		
-		auth.inMemoryAuthentication().withUser("jess-curti").password(passwordEncoder().encode("jess-curti"))
-			.authorities("ROLE_ADMIN");
-	}
 	
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
 }
