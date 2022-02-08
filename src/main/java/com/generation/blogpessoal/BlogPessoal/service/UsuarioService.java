@@ -15,6 +15,15 @@ import com.generation.blogpessoal.BlogPessoal.model.Usuario;
 import com.generation.blogpessoal.BlogPessoal.model.UsuarioLogin;
 import com.generation.blogpessoal.BlogPessoal.repository.UsuarioRepository;
 
+/**
+ * Implementação do UsuarioService com os métodos relacionados com a model Usuario
+ * 
+ * @author Jessica Curti
+ * @date 08/02/2022
+ * @version 1.0
+ * 
+ */
+
 @Service
 public class UsuarioService {
 
