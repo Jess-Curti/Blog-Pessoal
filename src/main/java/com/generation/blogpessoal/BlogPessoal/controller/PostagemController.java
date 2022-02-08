@@ -23,6 +23,15 @@ import org.springframework.web.server.ResponseStatusException;
 import com.generation.blogpessoal.BlogPessoal.model.Postagem;
 import com.generation.blogpessoal.BlogPessoal.repository.PostagemRepository;
 
+/**
+ * Implementação dos endpoints relacionados com a model Postagem
+ * 
+ * @author Jessica Curti
+ * @date 08/02/2022
+ * @version 1.0
+ *
+ */
+
 @RestController
 @RequestMapping("/postagem")
 @CrossOrigin(value = "*", allowedHeaders = "*")

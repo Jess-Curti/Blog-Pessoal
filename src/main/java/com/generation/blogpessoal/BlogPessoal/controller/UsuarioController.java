@@ -23,6 +23,15 @@ import com.generation.blogpessoal.BlogPessoal.model.UsuarioLogin;
 import com.generation.blogpessoal.BlogPessoal.repository.UsuarioRepository;
 import com.generation.blogpessoal.BlogPessoal.service.UsuarioService;
 
+/**
+ * Implementação dos endpoints relacionados com a model Usuario
+ * 
+ * @author Jessica Curti
+ * @date 03/02/2022
+ * @version 1.0
+ *
+ */
+
 @RestController
 @RequestMapping("/usuario")
 @CrossOrigin(origins = "*", allowedHeaders = "*")

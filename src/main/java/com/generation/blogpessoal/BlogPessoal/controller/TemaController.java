@@ -23,6 +23,15 @@ import org.springframework.web.server.ResponseStatusException;
 import com.generation.blogpessoal.BlogPessoal.model.Tema;
 import com.generation.blogpessoal.BlogPessoal.repository.TemaRepository;
 
+/**
+ * Implementação dos endpoints relacionados com a model Tema
+ * 
+ * @author Jessica Curti
+ * @date 08/02/2022
+ * @version 1.0
+ *
+ */
+
 @RestController
 @RequestMapping("/tema")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
