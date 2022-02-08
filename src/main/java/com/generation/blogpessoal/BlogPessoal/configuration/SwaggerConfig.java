@@ -13,6 +13,15 @@ import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 
+/**
+ * Configuração do Swagger-ui
+ * 
+ * @author Jessica
+ * @date 08/02/2022
+ * @version 1.0
+ *
+ */
+
 @Configuration
 public class SwaggerConfig {
 
@@ -24,10 +33,7 @@ public class SwaggerConfig {
 						.title("Blog Jess")
 						.description("Projeto Blog Pessoal")
 						.version("v0.0.1")
-						.license(new License()
-								.name("Blog Jess")
-								.url("<https://brazil.generation.org/>"))
-						.contact(new Contact()
+				.contact(new Contact()
 								.name("Jessica Curti")
 								.url("<https://linktr.ee/jessicacurti>")
 								.email("jessica.m.curti@gmail.com")))
