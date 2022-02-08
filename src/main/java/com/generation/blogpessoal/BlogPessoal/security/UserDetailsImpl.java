@@ -8,6 +8,17 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.generation.blogpessoal.BlogPessoal.model.Usuario;
 
+/**
+ * Implementação do UserDetails do Spring Security
+ * 
+ * @author Jessica Curti
+ * @date 08/02/20221.00.1.1-SNAPSHOT
+ * @see UserDetails
+ * @see UserDetailsImplements
+ * @see UserDetailsServiceImplement
+ * 
+ */
+
 public class UserDetailsImpl implements UserDetails {
 
 	private static final long serialVersionUID = 1L;

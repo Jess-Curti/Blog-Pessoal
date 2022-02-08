@@ -11,6 +11,26 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Configuração do spring security
+ * 
+ * @author Jessica Curti
+ * @date 08/02/2022
+ * @version 1.0
+ * @see WebSecurityConfigurerAdapter
+ * @see EnableWebSecurity
+ * @see PasswordEncoder
+ * @see BCryptPasswordEncoder
+ * @see SessionCreationPolicy
+ * @see HttpSecurity
+ * @see AuthenticationManagerBuilder
+ * @see HttpMethod
+ * @see ResponseStatusException
+ * @see HttpStatus
+ * @see UserServices
+ *
+ */
+
 @EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
