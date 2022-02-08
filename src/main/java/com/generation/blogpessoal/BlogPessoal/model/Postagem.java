@@ -15,6 +15,15 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * Model da tabela tb_postagens
+ * 
+ * @author Jessica Curti
+ * @date 08/02/2022
+ * @version 1.0
+ *
+ */
+
 @Entity
 @Table(name = "tb_postagens")
 public class Postagem {

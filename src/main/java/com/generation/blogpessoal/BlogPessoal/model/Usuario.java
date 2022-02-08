@@ -17,6 +17,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
+/**
+ * Model da tabela tb_usuarios
+ * 
+ * @author Jessica Curti
+ * @date 08/02/2022
+ * @version 1.0
+ *
+ */
+
 @Entity
 @Table(name = "tb_usuarios")
 public class Usuario {
