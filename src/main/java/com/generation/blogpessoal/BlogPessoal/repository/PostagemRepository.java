@@ -7,6 +7,15 @@ import org.springframework.stereotype.Repository;
 
 import com.generation.blogpessoal.BlogPessoal.model.Postagem;
 
+/**
+ * Repositório de métodos CRUD da model Postagem
+ * 
+ * @author Jessica Curti
+ * @date 08/02/2022
+ * @version 1.0
+ *
+ */
+
 @Repository
 public interface PostagemRepository extends JpaRepository<Postagem, Long> {
 
